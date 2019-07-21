@@ -11,7 +11,9 @@ import Paper from "@material-ui/core/Paper";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 
-import steemEngine from "../service/SteemEngineService";
+import steemEngine, {
+  findAllTokenBalance
+} from "../service/SteemEngineService";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,40 +38,60 @@ const Holder = () => {
   }, [holders, orderBy]);
 
   React.useEffect(() => {
-    steemEngine.find(
-      "tokens",
-      "balances",
-      { symbol: "ZZAN" },
-      1000,
-      0,
-      [],
-      (err, result) => {
-        console.log(err, result);
-        if (!err) {
-          const holders = result.map(holder => {
-            const balance = parseFloat(holder.balance || 0);
-            const stake = parseFloat(holder.stake || 0);
-            const balanceStakeSum = balance + stake;
-            return {
-              account: holder.account,
-              balance,
-              delegatedStake: parseFloat(holder.delegatedStake || 0),
-              pendingUnstake: parseFloat(holder.pendingUnstake || 0),
-              pendingUndelegations: parseFloat(
-                holder.pendingUndelegations || 0
-              ),
-              receivedStake: parseFloat(holder.receivedStake || 0),
-              stake,
-              balanceStakeSum
-            };
-          });
-          // .sort((a, b) => b.balanceStakeSum - a.balanceStakeSum);
-          setHolders(holders);
-          //   setOrderBy("balanceStakeSum");
-        }
-        setLoading(false);
-      }
-    );
+    // steemEngine.find(
+    //   "tokens",
+    //   "balances",
+    //   { symbol: "ZZAN" },
+    //   1000,
+    //   0,
+    //   [],
+    //   (err, result) => {
+    //     console.log(err, result);
+    //     if (!err) {
+    //       const holders = result.map(holder => {
+    //         const balance = parseFloat(holder.balance || 0);
+    //         const stake = parseFloat(holder.stake || 0);
+    //         const balanceStakeSum = balance + stake;
+    //         return {
+    //           account: holder.account,
+    //           balance,
+    //           delegatedStake: parseFloat(holder.delegatedStake || 0),
+    //           pendingUnstake: parseFloat(holder.pendingUnstake || 0),
+    //           pendingUndelegations: parseFloat(
+    //             holder.pendingUndelegations || 0
+    //           ),
+    //           receivedStake: parseFloat(holder.receivedStake || 0),
+    //           stake,
+    //           balanceStakeSum
+    //         };
+    //       });
+    //       // .sort((a, b) => b.balanceStakeSum - a.balanceStakeSum);
+    //       setHolders(holders);
+    //       //   setOrderBy("balanceStakeSum");
+    //     }
+    //     setLoading(false);
+    //   }
+    // );
+    findAllTokenBalance().then(result => {
+      console.log('findAllTokenBalance', result);
+      const holders = result.map(holder => {
+        const balance = parseFloat(holder.balance || 0);
+        const stake = parseFloat(holder.stake || 0);
+        const balanceStakeSum = balance + stake;
+        return {
+          account: holder.account,
+          balance,
+          delegatedStake: parseFloat(holder.delegatedStake || 0),
+          pendingUnstake: parseFloat(holder.pendingUnstake || 0),
+          pendingUndelegations: parseFloat(holder.pendingUndelegations || 0),
+          receivedStake: parseFloat(holder.receivedStake || 0),
+          stake,
+          balanceStakeSum
+        };
+      });
+      setHolders(holders);
+      setLoading(false);
+    });
   }, []);
 
   return (
