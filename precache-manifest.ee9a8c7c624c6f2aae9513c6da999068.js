@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66886e13136a4963fb96837e59e9036e",
+    "revision": "58a24fcacd91a08bc70ff73a51ecc8f0",
     "url": "/zzan-manager/index.html"
   },
   {
-    "revision": "2bcbd4be6e985677f9ce",
+    "revision": "d90f1ab8510210ccfa4b",
     "url": "/zzan-manager/static/css/main.34de6062.chunk.css"
   },
   {
-    "revision": "c7088d4ae9507cef9d4e",
-    "url": "/zzan-manager/static/js/2.f599e724.chunk.js"
+    "revision": "6f23fe9bbf125c7f5a5d",
+    "url": "/zzan-manager/static/js/2.243d85e2.chunk.js"
   },
   {
-    "revision": "2bcbd4be6e985677f9ce",
-    "url": "/zzan-manager/static/js/main.7aa9a1e5.chunk.js"
+    "revision": "d90f1ab8510210ccfa4b",
+    "url": "/zzan-manager/static/js/main.10239456.chunk.js"
   },
   {
     "revision": "cb8a140d2c1bdd5f15b0",
