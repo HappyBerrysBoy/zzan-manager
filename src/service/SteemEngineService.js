@@ -24,13 +24,14 @@ export const findTokenBalance = ({
   });
 };
 
-export const findAllTokenBalance = async () => {
+export const findAllTokenBalance = async (symbol="ZZAN") => {
+  const query = { symbol };
   let result = [];
   const limit = 1000;
   for (let offset = 0; ; offset = offset + limit) {
-    const balances = await findTokenBalance({ limit, offset });
+    const balances = await findTokenBalance({ query, limit, offset });
     result = result.concat(balances);
-    if(balances.length < limit) break;
+    if (balances.length < limit) break;
   }
   return result;
 };
