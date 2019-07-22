@@ -15,7 +15,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import TradingView from "../components/TradingView";
+import { TVChartContainer } from "../components/TVChartContainer";
 
 import steemEngine, {
   findBuyBook,
@@ -50,7 +50,7 @@ const Orderbook = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <TradingView />
+          <TVChartContainer />
         </Grid>
       </Grid>
     </React.Fragment>
