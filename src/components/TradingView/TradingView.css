@@ -1,0 +1,33 @@
+.chart-resolution {
+  padding: 5px;
+  display: flex;
+  font-size: 12px;
+  background: rgb(255, 255, 255);
+}
+
+.chart-resolution ul {
+  display: flex;
+  width: auto;
+  border-width: 1px 1px 1px;
+  border-style: solid none solid solid;
+  border-color: rgba(223, 226, 231, 0.5) rgba(223, 226, 231, 0.5) rgba(223, 226, 231, 0.5);
+  border-image: initial;
+  border-right: none;
+  list-style: none;
+  padding-inline-start: 0;
+  margin-left: 5px;
+}
+
+.chart-resolution ul li {
+  width: 45px;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
+  border-right: 1px solid rgba(223, 226, 231, 0.5);
+}
+
+.chart-resolution ul .on {
+  color: rgb(255, 255, 255);
+  background: rgb(240, 185, 11);
+}

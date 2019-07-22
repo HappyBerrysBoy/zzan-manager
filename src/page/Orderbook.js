@@ -15,27 +15,31 @@ import Grid from "@material-ui/core/Grid";
 
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import TradingView from "../components/TradingView";
 
 import steemEngine, {
-  findAllTokenBalance
+  findBuyBook,
+  findSellBook,
+  findTradesHistory
 } from "../service/SteemEngineService";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: "100%",
-    marginTop: theme.spacing(3),
-    overflowX: "auto"
-  },
-  table: {
-    minWidth: 650
-  },
-  button: {
-    margin: theme.spacing(1)
-  }
-}));
+const useStyles = makeStyles(theme => ({}));
 
 const Orderbook = () => {
   const classes = useStyles();
+
+  React.useEffect(() => {
+    const opts = {
+      query: { symbol: "ZZAN" }
+    };
+    Promise.all([
+      findBuyBook(opts),
+      findSellBook(opts),
+      findTradesHistory(opts)
+    ]).then(([buyBook, sellBook, tradesHistory]) => {
+      console.log({ buyBook, sellBook, tradesHistory });
+    });
+  }, []);
 
   return (
     <React.Fragment>
@@ -44,6 +48,9 @@ const Orderbook = () => {
           <Typography component="h2" variant="h6" gutterBottom>
             Orderbook
           </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <TradingView />
         </Grid>
       </Grid>
     </React.Fragment>
