@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/zzan-manager/static/css/main.34de6062.chunk.css",
-    "main.js": "/zzan-manager/static/js/main.10239456.chunk.js",
-    "main.js.map": "/zzan-manager/static/js/main.10239456.chunk.js.map",
+    "main.css": "/zzan-manager/static/css/main.55278fd7.chunk.css",
+    "main.js": "/zzan-manager/static/js/main.22646523.chunk.js",
+    "main.js.map": "/zzan-manager/static/js/main.22646523.chunk.js.map",
     "runtime~main.js": "/zzan-manager/static/js/runtime~main.c79c7e34.js",
     "runtime~main.js.map": "/zzan-manager/static/js/runtime~main.c79c7e34.js.map",
-    "static/js/2.243d85e2.chunk.js": "/zzan-manager/static/js/2.243d85e2.chunk.js",
-    "static/js/2.243d85e2.chunk.js.map": "/zzan-manager/static/js/2.243d85e2.chunk.js.map",
+    "static/js/2.56f7f965.chunk.js": "/zzan-manager/static/js/2.56f7f965.chunk.js",
+    "static/js/2.56f7f965.chunk.js.map": "/zzan-manager/static/js/2.56f7f965.chunk.js.map",
     "index.html": "/zzan-manager/index.html",
-    "precache-manifest.ee9a8c7c624c6f2aae9513c6da999068.js": "/zzan-manager/precache-manifest.ee9a8c7c624c6f2aae9513c6da999068.js",
+    "precache-manifest.871bbb0a7fa91890054ca3bb3fe9b817.js": "/zzan-manager/precache-manifest.871bbb0a7fa91890054ca3bb3fe9b817.js",
     "service-worker.js": "/zzan-manager/service-worker.js",
-    "static/css/main.34de6062.chunk.css.map": "/zzan-manager/static/css/main.34de6062.chunk.css.map"
+    "static/css/main.55278fd7.chunk.css.map": "/zzan-manager/static/css/main.55278fd7.chunk.css.map"
   }
 }
