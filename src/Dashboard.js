@@ -17,6 +17,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import Holders from "./page/Holder";
+import Orderbook from "./page/Orderbook";
 
 import {
   HashRouter as Router,
@@ -112,7 +113,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Dashboard({ match }) {
+export default function Dashboard({ match, history }) {
   const classes = useStyles();
   const [selectedTab, setSelectedTab] = React.useState(0);
 
@@ -136,8 +137,8 @@ export default function Dashboard({ match }) {
             onChange={(event, value) => setSelectedTab(value)}
             aria-label="Simple tabs example"
           >
-            <Tab label="Richlist" />
-            <Tab label="Orderbook" />
+            <Tab label="Richlist" onClick={() => history.push(`${match.url}holders`)} />
+            <Tab label="Orderbook" onClick={() => history.push(`${match.url}orderbook`)} />
           </Tabs>
         </Toolbar>
       </AppBar>
@@ -146,7 +147,8 @@ export default function Dashboard({ match }) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Route exact path="/" component={Holders} />
-            <Route path={`${match.url}/holders`} component={Holders} />
+            <Route path={`${match.url}holders`} component={Holders} />
+            <Route path={`${match.url}orderbook`} component={Orderbook} />
           </Grid>
         </Container>
       </main>
